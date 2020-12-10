@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Hyph } from "../Utils/Utils";
-// import "./Header.css";
+import "./Header.css";
 
 export default class Header extends Component {
   handleLogoutClick = () => {};
@@ -13,6 +12,9 @@ export default class Header extends Component {
         <Link onClick={this.handleLogoutClick} to="/">
           Logout
         </Link>
+        <Link onClick={this.handleLogoutClick} to="/newrestaurant">
+          Add A Restaurant
+        </Link>
       </div>
     );
   }
@@ -21,7 +23,6 @@ export default class Header extends Component {
     return (
       <div className="Header__not-logged-in">
         <Link to="/register">Register</Link>
-        <Hyph />
         <Link to="/login">Log in</Link>
       </div>
     );
@@ -29,17 +30,15 @@ export default class Header extends Component {
 
   render() {
     return (
-      <nav className="Header">
-        <h1>
-          <Link to="/">
-            <FontAwesomeIcon className="green" icon="frog" /> Blogful Client
-          </Link>
-        </h1>
-        {/* {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
-          : this.renderLoginLink()} */}
-        {this.renderLoginLink}
-        {this.renderLogoutLink}
+      // <nav className="Header">
+      <nav className="topnav">
+        <Link to="/">
+          <FontAwesomeIcon icon="frog" /> Home
+        </Link>
+        <Link to="/Search">
+          Search
+        </Link>
+        {true ? this.renderLoginLink() : this.renderLogoutLink()}
       </nav>
     );
   }
