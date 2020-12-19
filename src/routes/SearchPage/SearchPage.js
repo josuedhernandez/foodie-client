@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import SearchForm from '../../components/SearchForm/SearchForm'
 import { Section } from '../../components/Utils/Utils'
+// import { Results } from '../../components/Results/Results'
+import { Restaurants } from '../../components/Utils/Restaurants'
 
 export default class LoginPage extends Component {
+
   static defaultProps = {
     location: {},
     history: {
@@ -10,8 +13,11 @@ export default class LoginPage extends Component {
     },
   }
 
-  handleSearch = () => {
-    console.log('Handle Search')
+  handleSearch = (ev) => {
+    ev.preventDefault()
+    const { search } = ev.target
+    const restaurants_list = Restaurants.filter( restaurant => search.includes(restaurant.name) )
+    console.log(`${restaurants_list}`)
     // const { location, history } = this.props
     // const destination = (location.state || {}).from || '/'
     // history.push(destination)

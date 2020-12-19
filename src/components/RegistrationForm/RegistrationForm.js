@@ -12,9 +12,6 @@ export default class RegistrationForm extends Component {
     ev.preventDefault()
     const { full_name, nick_name, user_name, password } = ev.target
 
-    console.log('registration form submitted')
-    console.log({ full_name, nick_name, user_name, password })
-
     full_name.value = ''
     nick_name.value = ''
     user_name.value = ''

@@ -30,10 +30,6 @@ class App extends Component {
             <Route path={"/login"} component={LoginPage} />
             <Route path={"/register"} component={RegistrationPage} />
             <Route path={"/search"} component={SearchPage} />
-            {/* <Route
-              path={'/article/:articleId'}
-              component={ArticlePage}
-            /> */}
             <Route component={NotFoundPage} />
           </Switch>
         </main>

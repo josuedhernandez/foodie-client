@@ -2,23 +2,26 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { FoodieContextProvider } from "./contexts/FoodieContext";
 import {
-  faFrog,
+  faHamburger,
   faComment,
-  faQuoteLeft
+  faQuoteLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
 import App from "./components/App/App";
 
 library.add(
-  faFrog, // logo
+  faHamburger, // logo
   faComment,
   faQuoteLeft
 );
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <FoodieContextProvider>
+      <App />
+    </FoodieContextProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );

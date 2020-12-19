@@ -3,8 +3,9 @@ import { Button, Input } from "../Utils/Utils";
 
 export default class SearchForm extends Component {
    handleSearch = (ev) => {
-       ev.preventDefault()
-       console.log('Searched...')
+       ev.preventDefault();
+       const { search } = ev.target
+       console.log(`Searched...${search}`)
     }
   render() {
 

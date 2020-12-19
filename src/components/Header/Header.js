@@ -1,19 +1,29 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FoodieContext from "../../contexts/FoodieContext";
 import "./Header.css";
 
 export default class Header extends Component {
-  handleLogoutClick = () => {};
+  static contextType = FoodieContext;
+
+  handleLogoutClick = () => {
+    this.context.change_user_status(false);
+  };
 
   renderLogoutLink() {
     return (
       <div className="Header__logged-in">
-        <Link onClick={this.handleLogoutClick} to="/">
-          Logout
-        </Link>
-        <Link onClick={this.handleLogoutClick} to="/newrestaurant">
+        <NavLink
+          activeClassName={"active"}
+          onClick={this.handleLogoutClick}
+          to="/newrestaurant"
+        >
           Add A Restaurant
+        </NavLink>
+        <Link onClick={this.handleLogoutClick} to="/">
+          {/* Clear token and go back to home */}
+          Logout
         </Link>
       </div>
     );
@@ -22,8 +32,12 @@ export default class Header extends Component {
   renderLoginLink() {
     return (
       <div className="Header__not-logged-in">
-        <Link to="/register">Register</Link>
-        <Link to="/login">Log in</Link>
+        <NavLink activeClassName={"active"} to="/login">
+          Log in
+        </NavLink>
+        <NavLink activeClassName={"active"} to="/register">
+          Register
+        </NavLink>
       </div>
     );
   }
@@ -32,13 +46,15 @@ export default class Header extends Component {
     return (
       // <nav className="Header">
       <nav className="topnav">
-        <Link to="/">
-          <FontAwesomeIcon icon="frog" /> Home
-        </Link>
-        <Link to="/Search">
+        <NavLink activeClassName="active" exact={true} to="/">
+          <FontAwesomeIcon icon="hamburger" /> Home
+        </NavLink>
+        <NavLink activeClassName="active" to="/Search">
           Search
-        </Link>
-        {true ? this.renderLoginLink() : this.renderLogoutLink()}
+        </NavLink>
+        {this.context.user_logged_in
+          ? this.renderLogoutLink()
+          : this.renderLoginLink()}
       </nav>
     );
   }
