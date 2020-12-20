@@ -15,7 +15,6 @@ export class FoodieContextProvider extends Component {
   };
 
   change_user_status = (logged_in) => {
-    console.log(`Changed Status ${logged_in}`);
     this.setState({ user_logged_in: logged_in });
   };
 

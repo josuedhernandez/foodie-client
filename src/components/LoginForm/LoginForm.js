@@ -1,22 +1,25 @@
 import React, { Component } from "react";
 import { Button, Input } from "../Utils/Utils";
-import FoodieContext from "../../contexts/FoodieContext"
+import FoodieContext from "../../contexts/FoodieContext";
+import TokenService from "../../services/token-service";
 
 export default class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => {},
   };
 
-  static contextType = FoodieContext
+  static contextType = FoodieContext;
 
   state = { error: null };
 
   handleSubmitBasicAuth = (ev) => {
     ev.preventDefault();
     const { user_name, password } = ev.target;
-    console.log( user_name, password );
-    this.context.change_user_status(true);
 
+    // Adding basic token services.
+    TokenService.saveAuthToken(
+      TokenService.makeBasicAuthToken(user_name.value, password.value)
+    );
     user_name.value = "";
     password.value = "";
     this.props.onLoginSuccess();

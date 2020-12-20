@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FoodieContext from "../../contexts/FoodieContext";
+import TokenService from "../../services/token-service";
 import "./Header.css";
 
 export default class Header extends Component {
   static contextType = FoodieContext;
 
   handleLogoutClick = () => {
-    this.context.change_user_status(false);
+    console.log(`handle logout`)
+    TokenService.clearAuthToken()
   };
 
   renderLogoutLink() {
@@ -16,7 +18,6 @@ export default class Header extends Component {
       <div className="Header__logged-in">
         <NavLink
           activeClassName={"active"}
-          onClick={this.handleLogoutClick}
           to="/newrestaurant"
         >
           Add A Restaurant
@@ -52,7 +53,7 @@ export default class Header extends Component {
         <NavLink activeClassName="active" to="/Search">
           Search
         </NavLink>
-        {this.context.user_logged_in
+        {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
       </nav>
