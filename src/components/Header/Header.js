@@ -9,7 +9,6 @@ export default class Header extends Component {
   static contextType = FoodieContext;
 
   handleLogoutClick = () => {
-    console.log(`handle logout`)
     TokenService.clearAuthToken()
   };
 
