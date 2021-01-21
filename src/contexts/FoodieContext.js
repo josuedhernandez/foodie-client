@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { restaurants, users } from "../components/Utils/Restaurants";
+import { restaurants } from "../components/Utils/Restaurants";
 
 // Will use context to handle user authentication
 // status for this static option only.
