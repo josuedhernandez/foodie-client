@@ -5,7 +5,7 @@ const restaurants = [
     rating: 5,  // TODO Need to implement rating overall as an average of user inputs.
     zipcode: 85382,
     cuisine: ["American", "Mexican"],
-    meals: ["Pupusas", "Nacatamales"],
+    meals: ["Pupusas", "Nacatamales", "Tacos"],
     comments: [
       {username: "dunder", comment: "Pupusas in America", rating: 5},
       {username: "catracho", comment: "Nacatamales were ok. Was missing the Honduran style", rating: 3},
@@ -30,7 +30,7 @@ const restaurants = [
     rating: 1,
     zipcode: 85386,
     cuisine: ["Chineese"],
-    meals: ["Fried Rice", "Octupus"],
+    meals: ["Fried Rice", "Octupus", "Tacos"],
     comments: [
       {username: "dunder", comment: "Best Fried rice ever", rating: 5},
       {username: "catracho", comment: "Best Octupus in town", rating: 3}

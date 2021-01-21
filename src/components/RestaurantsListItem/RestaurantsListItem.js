@@ -17,6 +17,7 @@ export default class RestaurantListItem extends Component {
         </header>
         <footer className='RestaurantListItem__footer'>
           <RestaurantCuisine Restaurant={Restaurant} />
+          {/* ToDo: Calculate rating from comments made by users */}
           {Restaurant.rating}<Hyph />
           <RestaurantCommentCount Restaurant={Restaurant} />
         </footer>

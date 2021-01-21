@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Section } from "../../components/Utils/Utils";
-import NewRestaurantForm from "../../components/NewRestaurantForm/NewRestaurantForm"
+import NewRestaurantForm from "../../components/NewRestaurantForm/NewRestaurantForm";
+import FoodieContext from "../../contexts/FoodieContext";
 
 export default class NewRestaurantPage extends Component {
   static defaultProps = {
@@ -9,18 +10,22 @@ export default class NewRestaurantPage extends Component {
     },
   };
 
-  handleRegistrationSuccess = (user) => {
+  static contextType = FoodieContext;
+
+  handleRestaurantInput = (restaurant) => {
     const { history } = this.props;
-    // history.push("/login");
+    history.push("/search");
+    // Add new restaurant entry to array
+    this.context.RESTAURANTS_LIST.push(restaurant);
+
+
   };
 
   render() {
     return (
       <Section className="RegistrationPage">
         <h2>Register</h2>
-        <NewRestaurantForm
-          onRegistrationSuccess={this.handleRegistrationSuccess}
-        />
+        <NewRestaurantForm onRegistrationSuccess={this.handleRestaurantInput} />
       </Section>
     );
   }

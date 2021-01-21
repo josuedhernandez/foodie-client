@@ -4,6 +4,15 @@ import { Section } from "../../components/Utils/Utils";
 import FoodieContext from "../../contexts/FoodieContext";
 import RestaurantListItem from "../../components/RestaurantsListItem/RestaurantsListItem";
 
+function arrayToLowerCase(array) {
+  // For a legacy browser safe version using an anonymous function
+  var words = array.map(function (v) {
+    return v.toLowerCase();
+  });
+
+  return words;
+}
+
 export default class LoginPage extends Component {
   constructor(props) {
     super(props);
@@ -24,20 +33,24 @@ export default class LoginPage extends Component {
     const search_term = search.value.toLowerCase();
 
     // Search by name, cuisine and meals
-    const results = this.context.RESTAURANTS_LIST.filter((place) => {
-      if (
+    let results = this.context.RESTAURANTS_LIST.filter(
+      (place) =>
         place.name.toLowerCase().includes(search_term) ||
-        search_term.includes(place.name.toLowerCase().includes(search_term))
-      ) {
-        return true;
-      }
-      // TODO: Implement search by cuisine and meal
-      // else if (
-      //             place.cuisine.toLowerCase().includes(search_term) ||
-      //   search_term.includes(place.name.toLowerCase().includes(search_term))
-      // )
-      // { }
-    });
+        search_term.includes(place.name.toLowerCase())
+    );
+    // Concatenate arrays by searching by cuisine and meal
+    // ToDo implement query to search one word not extact matche
+    // e.g. search for "Sausage" in Meals ["Italian Sausage spicy", "Pizza"] should return true
+    results = results.concat(
+      this.context.RESTAURANTS_LIST.filter((place) => {
+        let lowerCaseCuisine = arrayToLowerCase(place.cuisine);
+        let lowerCaseMeals = arrayToLowerCase(place.meals);
+        return (
+          lowerCaseCuisine.includes(search_term) ||
+          lowerCaseMeals.includes(search_term)
+        );
+      })
+    );
 
     // Search by
     this.setState({ results: results });

@@ -13,6 +13,7 @@ export default FoodieContext;
 
 export class FoodieContextProvider extends Component {
   state = {
+    user_name: "",
     user_logged_in: false,
     RESTAURANTS_LIST: restaurants
   };
@@ -23,6 +24,7 @@ export class FoodieContextProvider extends Component {
 
   render() {
     const value = {
+      user_name: this.state.user_name,
       user_logged_in: this.state.user_logged_in,
       change_user_status: this.change_user_status,
       RESTAURANTS_LIST: this.state.RESTAURANTS_LIST
