@@ -3,23 +3,24 @@ import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FoodieContext from "../../contexts/FoodieContext";
 import TokenService from "../../services/token-service";
+import IdleService from "../../services/idle-service";
 import "./Header.css";
 
 export default class Header extends Component {
-  static contextType = FoodieContext;
+  // static contextType = FoodieContext;
 
   handleLogoutClick = () => {
-    TokenService.clearAuthToken()
-    window.location.href= '/'
+    TokenService.clearAuthToken();
+    // window.location.href= '/'
+    /* when logging out, clear the callbacks to the refresh api and idle auto logout */
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
   };
 
   renderLogoutLink() {
     return (
       <div className="Header__logged-in">
-        <NavLink
-          activeClassName={"active"}
-          to="/newrestaurant"
-        >
+        <NavLink activeClassName={"active"} to="/newrestaurant">
           Add A Restaurant
         </NavLink>
         <Link onClick={this.handleLogoutClick} to="/">
