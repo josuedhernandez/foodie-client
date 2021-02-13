@@ -1,33 +1,43 @@
 import React, { Component } from "react";
-import { restaurants } from "../components/Utils/Restaurants";
 
 // Will use context to handle user authentication
 // status for this static option only.
 const FoodieContext = React.createContext({
-  user_logged_in: false,
-  change_user_status: () => {},
-  RESTAURANTS_LIST: []
+  restaurantList: [],
+  error: null,
+  setError: () => {},
+  clearError: () => {},
+  setRestaurantList: () => {},
 });
 
 export default FoodieContext;
 
 export class FoodieContextProvider extends Component {
   state = {
-    user_name: "",
-    user_logged_in: false,
-    RESTAURANTS_LIST: restaurants
+    restaurantList: [],
+    error: null,
   };
 
-  change_user_status = (logged_in) => {
-    this.setState({ user_logged_in: logged_in });
+  setRestaurantList = (restaurantList) => {
+    this.setState({ restaurantList });
+  };
+
+  setError = (error) => {
+    console.error(error);
+    this.setState({ error });
+  };
+
+  clearError = () => {
+    this.setState({ error: null });
   };
 
   render() {
     const value = {
-      user_name: this.state.user_name,
-      user_logged_in: this.state.user_logged_in,
-      change_user_status: this.change_user_status,
-      RESTAURANTS_LIST: this.state.RESTAURANTS_LIST
+      restaurantList: this.state.restaurantList,
+      error: this.state.error,
+      setError: this.setError,
+      clearError: this.clearError,
+      setRestaurantList: this.setRestaurantList,
     };
     return (
       <FoodieContext.Provider value={value}>

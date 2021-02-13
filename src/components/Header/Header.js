@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import FoodieContext from "../../contexts/FoodieContext";
 import TokenService from "../../services/token-service";
 import IdleService from "../../services/idle-service";
 import "./Header.css";
 
 export default class Header extends Component {
-  // static contextType = FoodieContext;
 
   handleLogoutClick = () => {
     TokenService.clearAuthToken();

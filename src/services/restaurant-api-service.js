@@ -13,8 +13,8 @@ const RestaurantApiService = {
           : res.json()
       )
   },
-  getArticle(articleId) {
-    return fetch(`${config.API_ENDPOINT}/restaurants/${articleId}`, {
+  getArticle(restaurantId) {
+    return fetch(`${config.API_ENDPOINT}/restaurants/${restaurantId}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import { Section } from "../../components/Utils/Utils";
+import RestaurantApiService from "../../services/restaurant-api-service";
 import FoodieContext from "../../contexts/FoodieContext";
 import RestaurantListItem from "../../components/RestaurantsListItem/RestaurantsListItem";
 
@@ -29,6 +30,10 @@ export default class LoginPage extends Component {
 
   handleSearch = (ev) => {
     ev.preventDefault();
+    this.context.clearError();
+    RestaurantApiService.getArticles()
+      .then(this.context.setArticleList)
+      .catch(this.context.setError);
     const { search } = ev.target;
     const search_term = search.value.toLowerCase();
 
