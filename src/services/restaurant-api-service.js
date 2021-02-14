@@ -37,7 +37,7 @@ const RestaurantApiService = {
           : res.json()
       )
   },
-  postComment(restaurantId, text) {
+  postComment(restaurantId, text, rating) {
     return fetch(`${config.API_ENDPOINT}/comments`, {
       method: 'POST',
       headers: {
@@ -45,8 +45,9 @@ const RestaurantApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        article_id: restaurantId,
+        restaurant_id: restaurantId,
         text,
+        rating
       }),
     })
       .then(res =>
