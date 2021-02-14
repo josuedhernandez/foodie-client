@@ -5,51 +5,52 @@ import RestaurantApiService from "../../services/restaurant-api-service";
 import FoodieContext from "../../contexts/FoodieContext";
 import RestaurantListItem from "../../components/RestaurantsListItem/RestaurantsListItem";
 
+/*
 function arrayToLowerCase(array) {
   // For a legacy browser safe version using an anonymous function
+  // ToDo: Add functionality for multiple cuisines and meals to use this
+  // array function.
   var words = array.map(function (v) {
     return v.toLowerCase();
   });
 
   return words;
 }
+*/
 
-export default class LoginPage extends Component {
+export default class SearchPage extends Component {
   constructor(props) {
     super(props);
     this.state = { date: new Date(), results: [] };
   }
-  static defaultProps = {
-    location: {},
-    history: {
-      push: () => {},
-    },
-  };
-
   static contextType = FoodieContext;
+
+  componentDidMount() {
+    this.context.clearError();
+    RestaurantApiService.getRestaurants()
+      .then(this.context.setRestaurantList)
+      .catch(this.context.setError);
+  }
 
   handleSearch = (ev) => {
     ev.preventDefault();
-    this.context.clearError();
-    RestaurantApiService.getArticles()
-      .then(this.context.setArticleList)
-      .catch(this.context.setError);
+
     const { search } = ev.target;
     const search_term = search.value.toLowerCase();
 
     // Search by name, cuisine and meals
-    let results = this.context.RESTAURANTS_LIST.filter(
+    let results = this.context.restaurantList.filter(
       (place) =>
-        place.name.toLowerCase().includes(search_term) ||
-        search_term.includes(place.name.toLowerCase())
+        place.restaurant_name.toLowerCase().includes(search_term) ||
+        search_term.includes(place.restaurant_name.toLowerCase())
     );
     // Concatenate arrays by searching by cuisine and meal
     // ToDo implement query to search one word not extact matche
     // e.g. search for "Sausage" in Meals ["Italian Sausage spicy", "Pizza"] should return true
     results = results.concat(
-      this.context.RESTAURANTS_LIST.filter((place) => {
-        let lowerCaseCuisine = arrayToLowerCase(place.cuisine);
-        let lowerCaseMeals = arrayToLowerCase(place.meals);
+      this.context.restaurantList.filter((place) => {
+        let lowerCaseCuisine = place.cuisine.toLowerCase();
+        let lowerCaseMeals = place.meal.toLowerCase();
         return (
           lowerCaseCuisine.includes(search_term) ||
           lowerCaseMeals.includes(search_term)
@@ -60,8 +61,10 @@ export default class LoginPage extends Component {
     // Search by
     this.setState({ results: results });
   };
+
   render() {
     const RestauranList = this.state.results;
+
     return (
       <Section>
         <h1>Type any type of cuisine or meal name</h1>

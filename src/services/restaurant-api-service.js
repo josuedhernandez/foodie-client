@@ -2,7 +2,7 @@ import TokenService from '../services/token-service'
 import config from '../config'
 
 const RestaurantApiService = {
-  getArticles() {
+  getRestaurants() {
     return fetch(`${config.API_ENDPOINT}/restaurants`, {
       headers: {
       },
@@ -13,7 +13,7 @@ const RestaurantApiService = {
           : res.json()
       )
   },
-  getArticle(restaurantId) {
+  getRestaurant(restaurantId) {
     return fetch(`${config.API_ENDPOINT}/restaurants/${restaurantId}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -25,7 +25,7 @@ const RestaurantApiService = {
           : res.json()
       )
   },
-  getArticleComments(restaurantId) {
+  getRestaurantComments(restaurantId) {
     return fetch(`${config.API_ENDPOINT}/restaurant/${restaurantId}/comments`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,

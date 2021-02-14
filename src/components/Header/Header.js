@@ -9,7 +9,7 @@ export default class Header extends Component {
 
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
-    // window.location.href= '/'
+    window.location.href= '/'
     /* when logging out, clear the callbacks to the refresh api and idle auto logout */
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
