@@ -26,7 +26,7 @@ const RestaurantApiService = {
       )
   },
   getRestaurantComments(restaurantId) {
-    return fetch(`${config.API_ENDPOINT}/restaurant/${restaurantId}/comments`, {
+    return fetch(`${config.API_ENDPOINT}/restaurants/${restaurantId}/comments`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },

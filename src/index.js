@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FoodieContextProvider } from "./contexts/FoodieContext";
+import { RestaurantProvider } from './contexts/RestaurantContext'
 import {
   faHamburger,
   faComment,
@@ -20,7 +21,9 @@ library.add(
 ReactDOM.render(
   <BrowserRouter>
     <FoodieContextProvider>
-      <App />
+      <RestaurantProvider>
+        <App />
+      </RestaurantProvider>
     </FoodieContextProvider>
   </BrowserRouter>,
   document.getElementById("root")
