@@ -15,9 +15,6 @@ export default class NewRestaurantPage extends Component {
   handleRestaurantInput = (restaurant) => {
     const { history } = this.props;
     history.push("/search");
-    // Add new restaurant entry to array
-    this.context.RESTAURANTS_LIST.push(restaurant);
-
 
   };
 
@@ -25,7 +22,7 @@ export default class NewRestaurantPage extends Component {
     return (
       <Section className="RegistrationPage">
         <h2>Register</h2>
-        <NewRestaurantForm onRegistrationSuccess={this.handleRestaurantInput} />
+        <NewRestaurantForm onRestaurantSuccess={this.handleRestaurantInput} />
       </Section>
     );
   }

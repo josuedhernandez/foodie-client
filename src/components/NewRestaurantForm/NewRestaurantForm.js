@@ -3,6 +3,11 @@ import { Button, Input, Required } from "../Utils/Utils";
 import RestaurantApiService from "../../services/restaurant-api-service";
 
 export default class NewRestaurantForm extends Component {
+  static defaultProps = {
+    onRestaurantSuccess: () => {},
+  };
+
+
   state = { error: null };
 
   handleSubmit = (ev) => {
@@ -26,6 +31,7 @@ export default class NewRestaurantForm extends Component {
         RegistrationForm__rating.value = "";
         cuisine.value = "";
         RegistrationForm__mealname.value = "";
+        this.props.onRestaurantSuccess();
       })
       .catch(this.context.setError);
   };
