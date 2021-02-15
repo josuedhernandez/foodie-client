@@ -38,8 +38,8 @@ export default class SearchPage extends Component {
     const { search } = ev.target;
     const search_term = search.value.toLowerCase();
 
-    // Search by name, cuisine and meals
-    let results = this.context.restaurantList.filter(
+    // Search by name
+    let results_by_name = this.context.restaurantList.filter(
       (place) =>
         place.restaurant_name.toLowerCase().includes(search_term) ||
         search_term.includes(place.restaurant_name.toLowerCase())
@@ -47,16 +47,18 @@ export default class SearchPage extends Component {
     // Concatenate arrays by searching by cuisine and meal
     // ToDo implement query to search one word not extact matche
     // e.g. search for "Sausage" in Meals ["Italian Sausage spicy", "Pizza"] should return true
-    results = results.concat(
-      this.context.restaurantList.filter((place) => {
+    let results_by_cuisine_meal = this.context.restaurantList.filter(
+      (place) => {
         let lowerCaseCuisine = place.cuisine.toLowerCase();
         let lowerCaseMeals = place.meal.toLowerCase();
         return (
           lowerCaseCuisine.includes(search_term) ||
           lowerCaseMeals.includes(search_term)
         );
-      })
+      }
     );
+
+    let results = [...new Set([...results_by_name,...results_by_cuisine_meal])]
 
     // Search by
     this.setState({ results: results });

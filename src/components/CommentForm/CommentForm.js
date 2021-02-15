@@ -15,6 +15,7 @@ export default class CommentForm extends Component {
       .then(this.context.addComment)
       .then(() => {
         text.value = "";
+        rating.value = ""
       })
       .catch(this.context.setError);
   };
