@@ -5,7 +5,7 @@ import PrivateRoute from "../Utils/PrivateRoute";
 import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import HomePage from "../../routes/HomePage/HomePage";
 import SearchPage from "../../routes/SearchPage/SearchPage";
-import RestaurantPage from '../../routes/RestaurantPage/RestaurantPage';
+import RestaurantPage from "../../routes/RestaurantPage/RestaurantPage";
 import LoginPage from "../../routes/LoginPage/LoginPage";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
 import NewRestaurantPage from "../../routes/NewRestaurantPage/NewRestaurantPage";
@@ -13,6 +13,7 @@ import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
 import TokenService from "../../services/token-service";
 import AuthApiService from "../../services/auth-api-service";
 import IdleService from "../../services/idle-service";
+import "./App.css";
 
 class App extends Component {
   state = { hasError: false };

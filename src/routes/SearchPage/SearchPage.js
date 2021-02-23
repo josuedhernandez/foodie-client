@@ -4,6 +4,7 @@ import { Section } from "../../components/Utils/Utils";
 import RestaurantApiService from "../../services/restaurant-api-service";
 import FoodieContext from "../../contexts/FoodieContext";
 import RestaurantListItem from "../../components/RestaurantsListItem/RestaurantsListItem";
+import "./SearchPage.css";
 
 /*
 function arrayToLowerCase(array) {
@@ -68,7 +69,7 @@ export default class SearchPage extends Component {
     const RestauranList = this.state.results;
 
     return (
-      <Section>
+      <Section className="Search_Form">
         <h1>Type any type of cuisine or meal name</h1>
         <SearchForm onSearch={this.handleSearch} />
         {RestauranList.map((restaurant) => (
