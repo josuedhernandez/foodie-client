@@ -1,14 +1,14 @@
-div.App {
+* {
+  box-sizing: border-box;
+}
+
+html {
   background-image: url("../../images/vegetables-table.jpeg");
   background-position: center; /* Center the image */
-  /* background-repeat: repeat-y; */
+  background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
   background-attachment: fixed;
-  height: 100vh;
-  padding-bottom: 20px;
-  margin: 0 auto;
-  text-align: center;
-  vertical-align: middle;
 }
 
 main.App__main {
@@ -17,9 +17,9 @@ main.App__main {
   text-align: center;
   height: calc(100vh - 70px);
   overflow: auto;
-  margin-top: 10px;
+  margin: 0 auto;
+  margin-top: 15px;
   padding-bottom: 40px;
-  padding-left: 25%;
 }
 
 main.App__main h1 {

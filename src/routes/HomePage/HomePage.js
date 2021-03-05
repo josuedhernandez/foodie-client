@@ -13,6 +13,9 @@ export default class NotFoundPage extends Component {
           restaurants, provide reviews and share the meals that you ate there.
           Also type of cuisine
         </p>
+        <h5>
+          Test it out with username: dunder and password: password
+        </h5>
       </Section>
     );
   }

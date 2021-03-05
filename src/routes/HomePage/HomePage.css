@@ -1,11 +1,30 @@
 .HomePage h1 {
-  font-size: 60px;
+  font-size: 40px;
 }
 
 .HomePage h3 {
-  font-size: 35px;
+  font-size: 25px;
 }
 
 .HomePage p {
+  font-size: 15px;
+}
+
+/* Handle styling for bigger screens */
+@media all and (min-width: 600px) {
+  .HomePage h1 {
+    font-size: 70px;
+    margin-bottom: 0%;
+    padding-bottom: 25px;
+  }
+  
+  .HomePage h3 {
+    font-size: 40px;
+    margin-top: 0%;
+    margin-bottom: 30px;
+  }
+
+  .HomePage p {
   font-size: 20px;
+}
 }

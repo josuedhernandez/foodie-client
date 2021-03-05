@@ -47,7 +47,7 @@ export default class Header extends Component {
       // <nav className="Header">
       <nav className="topnav">
         <NavLink activeClassName="active" exact={true} to="/">
-          <FontAwesomeIcon icon="hamburger" /> Home
+          <FontAwesomeIcon icon={["fa", "hamburger"]} /> Home
         </NavLink>
         <NavLink activeClassName="active" to="/Search">
           Search
