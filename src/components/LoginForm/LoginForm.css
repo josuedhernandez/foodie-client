@@ -1,14 +1,32 @@
 .user_name {
-    position: relative;
-    /* Using relative here for responsive */
+  position: relative;
+  /* Using relative here for responsive */
 }
 
-
-.fa {
-    color: #4CAF50;
-    text-shadow: 3px 3px 3px #ccc;
-    font-size: 1.5em;
-    /* This should absolute and define position  coordinate per icon*/
+.password {
+  position: relative;
+  /* Using relative here for responsive */
 }
 
-/* To place icon add padding to passwor and login */
+.fa-user {
+  color: #4caf50;
+  text-shadow: 3px 3px 3px #ccc;
+  font-size: 1.5em;
+  position: absolute;
+  top: 25px;
+  left: 5px;
+}
+
+.fa-key {
+  color: #4caf50;
+  text-shadow: 3px 3px 3px #ccc;
+  font-size: 1.5em;
+  position: absolute;
+  top: 25px;
+  left: 5px;
+}
+/* To place icon add padding to password and login */
+
+.LoginForm Input {
+  padding-left: 33px;
+}

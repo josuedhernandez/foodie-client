@@ -1,5 +1,3 @@
-/* Reduce font-size and width */
-
 .Header {
   height: 40px;
   display: flex;
@@ -21,7 +19,7 @@
 
 .Header__not-logged-in {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .Header__not-logged-in .Hyph {
@@ -41,7 +39,7 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 /* Change the color of links on hover */
@@ -52,8 +50,14 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
+}
+
+.Header__logged-in {
+  display: flex;
+  flex-direction: column;
+  font-size: 5px;
 }
 
 @media screen and (min-width: 450px) {
@@ -70,5 +74,15 @@
 
   .Header__not-logged-in .Hyph {
     display: initial;
+  }
+
+  .topnav a {
+    font-size: 18px;
+  }
+
+  .Header__logged-in {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
   }
 }

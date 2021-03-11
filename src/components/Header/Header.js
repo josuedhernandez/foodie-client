@@ -6,10 +6,9 @@ import IdleService from "../../services/idle-service";
 import "./Header.css";
 
 export default class Header extends Component {
-
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
-    window.location.href= '/'
+    window.location.href = "/";
     /* when logging out, clear the callbacks to the refresh api and idle auto logout */
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
@@ -19,7 +18,7 @@ export default class Header extends Component {
     return (
       <div className="Header__logged-in">
         <NavLink activeClassName={"active"} to="/newrestaurant">
-          Add A Restaurant
+          Add Restaurant
         </NavLink>
         <Link onClick={this.handleLogoutClick} to="/">
           {/* Clear token and go back to home */}
@@ -33,7 +32,7 @@ export default class Header extends Component {
     return (
       <div className="Header__not-logged-in">
         <NavLink activeClassName={"active"} to="/login">
-          Log in
+          Login
         </NavLink>
         <NavLink activeClassName={"active"} to="/register">
           Register

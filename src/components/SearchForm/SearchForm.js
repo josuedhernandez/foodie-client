@@ -10,6 +10,8 @@ export default class SearchForm extends Component {
           placeholder="Search.."
           name="search"
           id="restaurant_search"
+          // eslint-disable-next-line
+          placeholder="Enter search..."
         />
         <Button className="button" type="submit">Search...</Button>
       </form>

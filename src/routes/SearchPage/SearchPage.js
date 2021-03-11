@@ -57,7 +57,7 @@ export default class SearchPage extends Component {
 
     return (
       <Section className="Search_Form">
-        <h1>Type any type of cuisine or meal name</h1>
+        <h1>Type any restaurant mame, type of cuisine or meal name</h1>
         <SearchForm onSearch={this.handleSearch} />
         <div className="search-container">
         {RestauranList.map((restaurant) => (
