@@ -41,7 +41,7 @@ export default class LoginForm extends Component {
           <FontAwesomeIcon className="fa-user" icon={faUser} />
           <label htmlFor="LoginForm__user_name">User name</label>
           <Input required name="user_name" id="LoginForm__user_name"
-          placeholder="username... ('dunder' for test)"></Input>
+          placeholder="username... ('test' for test)"></Input>
         </div>
         <div className="password">
           <FontAwesomeIcon className="fa-key" icon={faKey} />
@@ -51,7 +51,7 @@ export default class LoginForm extends Component {
             name="password"
             type="password"
             id="LoginForm__password"
-            placeholder="password...(use 'password' for dunder)"
+            placeholder="password...(use 'Test!234' for test)"
             /* Use place holder to display input info */
           ></Input>
         </div>
