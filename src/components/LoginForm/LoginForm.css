@@ -1,5 +1,14 @@
+.user_name {
+    position: relative;
+    /* Using relative here for responsive */
+}
+
+
 .fa {
     color: #4CAF50;
     text-shadow: 3px 3px 3px #ccc;
     font-size: 1.5em;
+    /* This should absolute and define position  coordinate per icon*/
 }
+
+/* To place icon add padding to passwor and login */

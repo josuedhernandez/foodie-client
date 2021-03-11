@@ -50,6 +50,7 @@ export default class LoginForm extends Component {
             name="password"
             type="password"
             id="LoginForm__password"
+            /* Use place holder to display input info */
           ></Input>
         </div>
         <Button type="submit">Login</Button>

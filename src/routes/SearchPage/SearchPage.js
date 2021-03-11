@@ -6,19 +6,6 @@ import FoodieContext from "../../contexts/FoodieContext";
 import RestaurantListItem from "../../components/RestaurantsListItem/RestaurantsListItem";
 import "./SearchPage.css";
 
-/*
-function arrayToLowerCase(array) {
-  // For a legacy browser safe version using an anonymous function
-  // ToDo: Add functionality for multiple cuisines and meals to use this
-  // array function.
-  var words = array.map(function (v) {
-    return v.toLowerCase();
-  });
-
-  return words;
-}
-*/
-
 export default class SearchPage extends Component {
   constructor(props) {
     super(props);
@@ -72,9 +59,11 @@ export default class SearchPage extends Component {
       <Section className="Search_Form">
         <h1>Type any type of cuisine or meal name</h1>
         <SearchForm onSearch={this.handleSearch} />
+        <div className="search-container">
         {RestauranList.map((restaurant) => (
           <RestaurantListItem key={restaurant.id} Restaurant={restaurant} />
         ))}
+        </div>
       </Section>
     );
   }
