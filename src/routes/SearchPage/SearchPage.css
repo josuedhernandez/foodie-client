@@ -3,8 +3,20 @@
   padding-bottom: 10%;
 }
 
+.Search_Form h3 {
+  /* 1 pixel black shadow to left, top, right and bottom */
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    font-size: 15px;
+}
+
 .button {
   margin-bottom: 15px;
+}
+
+.Not_results {
+  color: red;
+  font-size: 20px;
+  background-color: lightgrey;
 }
 
 .search-container {
@@ -33,4 +45,10 @@
     padding-top: 5%;
     padding-bottom: 5%;
   }
+
+  .Search_Form h3 {
+  /* 1 pixel black shadow to left, top, right and bottom */
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    font-size: 23px;
+}
 }

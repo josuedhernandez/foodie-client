@@ -6,10 +6,18 @@ import FoodieContext from "../../contexts/FoodieContext";
 import RestaurantListItem from "../../components/RestaurantsListItem/RestaurantsListItem";
 import "./SearchPage.css";
 
+function notResults(word) {
+  return  <div className="Not_results">
+            Your search: "{word}" Didn't match any restaurants or cuisines.
+            <br/>
+            Try: "Mexican" or "Chineese"
+          </div>
+}
+
 export default class SearchPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { date: new Date(), results: [] };
+    this.state = { date: new Date(), results: [], error: "" };
   }
   static contextType = FoodieContext;
 
@@ -48,21 +56,30 @@ export default class SearchPage extends Component {
 
     let results = [...new Set([...results_by_name,...results_by_cuisine_meal])]
 
+    if (!results.length ) {
+      // this.setState( {error: `"${search_term}" Didn't Find any results`} )
+      this.setState({error: notResults(search_term)})
+    }
+
     // Search by
     this.setState({ results: results });
   };
 
   render() {
     const RestauranList = this.state.results;
+    const searchResults = this.state.error;
 
     return (
       <Section className="Search_Form">
         <h1>Type any restaurant mame, type of cuisine or meal name</h1>
+        <h3>Try Searching: "Mexican" or "Chineese". You can also enter a new restaurant using the "Add restaurant" page if your
+          search term doesn't contain any results.
+        </h3>
         <SearchForm onSearch={this.handleSearch} />
         <div className="search-container">
-        {RestauranList.map((restaurant) => (
+        {RestauranList.length ? RestauranList.map((restaurant) => (
           <RestaurantListItem key={restaurant.id} Restaurant={restaurant} />
-        ))}
+        )) : searchResults}
         </div>
       </Section>
     );

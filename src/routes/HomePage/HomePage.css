@@ -8,6 +8,13 @@
 
 .HomePage p {
   font-size: 15px;
+  background-color: #ffff98;
+}
+
+.HomePage h5 {
+  /* 1 pixel black shadow to left, top, right and bottom */
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    font-size: 15px;
 }
 
 /* Handle styling for bigger screens */

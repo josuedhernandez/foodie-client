@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Hyph } from "../Utils/Utils";
 
 export default class RestaurantListItem extends Component {
+  static defaultProps = { Restaurant: [] };
+
   render() {
     const { Restaurant } = this.props;
     return (

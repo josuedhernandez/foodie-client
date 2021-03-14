@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TokenService from "../../services/token-service";
 import IdleService from "../../services/idle-service";
 import "./Header.css";
@@ -46,7 +45,7 @@ export default class Header extends Component {
       // <nav className="Header">
       <nav className="topnav">
         <NavLink activeClassName="active" exact={true} to="/">
-          <FontAwesomeIcon icon={["fa", "hamburger"]} /> Home
+          Home
         </NavLink>
         <NavLink activeClassName="active" to="/Search">
           Search
