@@ -8,9 +8,9 @@ import "./SearchPage.css";
 
 function notResults(word) {
   return  <div className="Not_results">
-            Your search: "{word}" Didn't match any restaurants or cuisines.
+            Your search: "{word}" Didn't match any restaurants, cuisines or meals.
             <br/>
-            Try: "Mexican" or "Chineese"
+            Try: "Mexican" or "Panda Express"
           </div>
 }
 
@@ -72,7 +72,7 @@ export default class SearchPage extends Component {
     return (
       <Section className="Search_Form">
         <h1>Type any restaurant mame, type of cuisine or meal name</h1>
-        <h3>Try Searching: "Mexican" or "Chineese". You can also enter a new restaurant using the "Add restaurant" page if your
+        <h3>Try Searching: "Mexican" or "Panda Express". You can also enter a new restaurant using the "Add restaurant" page if your
           search term doesn't contain any results.
         </h3>
         <SearchForm onSearch={this.handleSearch} />
